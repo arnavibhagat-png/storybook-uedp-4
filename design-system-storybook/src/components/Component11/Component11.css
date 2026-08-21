@@ -1,0 +1,88 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Component 11 — Nav Pill Button
+   Figma: ComponentSet ID 59:160 | Canvas: Page 1
+   Variants: grp tired | default | hover | pressed | disabled
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.Component11 {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--uedp-spacing-2);
+  padding: var(--uedp-spacing-2) var(--uedp-spacing-4);
+
+  /* Geometry — cornerRadius: 27px (hardcoded from Figma) */
+  border-radius: var(--uedp-rounded-button);
+  border: none;
+  cursor: pointer;
+  outline: none;
+
+  /* Typography */
+  font-family: var(--uedp-font-body);
+  font-size: var(--uedp-type-body-2-size);
+  font-weight: var(--uedp-type-body-2-weight);
+  line-height: var(--uedp-type-body-2-line-height);
+
+  /* Transition */
+  transition: background-color 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Variant: default — fill: VariableID:1:92 → --uedp-brown-900 */
+.Component11--default {
+  background-color: var(--uedp-brown-900);
+  color: var(--uedp-white);
+  box-shadow: 0 2px 8px rgba(69, 26, 3, 0.24);
+}
+
+/* Variant: hover — same fill but elevated shadow */
+.Component11--hover,
+.Component11--default:hover {
+  background-color: var(--uedp-brown-900);
+  color: var(--uedp-white);
+  box-shadow: 0 4px 16px rgba(69, 26, 3, 0.36);
+  transform: translateY(-1px);
+}
+
+/* Variant: pressed — slight scale-down */
+.Component11--pressed,
+.Component11--default:active {
+  background-color: var(--uedp-brown-900);
+  color: var(--uedp-white);
+  box-shadow: 0 1px 4px rgba(69, 26, 3, 0.18);
+  transform: scale(0.97);
+}
+
+/* Variant: disabled — fill: VariableID:1:92 (same color but dimmed via opacity) */
+.Component11--disabled {
+  background-color: var(--uedp-brown-900);
+  color: var(--uedp-white);
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Variant: grp tired — no fill (outline style) */
+.Component11--grp-tired {
+  background-color: transparent;
+  color: var(--uedp-brown-900);
+  border: 1.5px solid var(--uedp-brown-900);
+  box-shadow: none;
+}
+
+.Component11--grp-tired:hover {
+  background-color: rgba(69, 26, 3, 0.06);
+}
+
+/* Icon slot */
+.Component11__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}

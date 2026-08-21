@@ -1,0 +1,171 @@
+/**
+ * UEDP-5 Figma Design System — CSS Custom Properties
+ * Generated from base-palette-tokens.json + foundational-tokens.json
+ * Variable IDs sourced from Figma REST API (GET /v1/files/{file_key}/variables/local)
+ *
+ * Variable ID Mapping:
+ *   VariableID:1:3  → --uedp-black
+ *   VariableID:1:4  → --uedp-white
+ *   VariableID:1:5  → --uedp-neutral-50
+ *   VariableID:1:7  → --uedp-blue-100
+ *   VariableID:1:28 → --uedp-neutral-100
+ *   VariableID:1:29 → --uedp-neutral-200
+ *   VariableID:1:30 → --uedp-neutral-300
+ *   VariableID:1:31 → --uedp-neutral-400
+ *   VariableID:1:61 → --uedp-red-100
+ *   VariableID:1:63 → --uedp-red-300
+ *   VariableID:1:86 → --uedp-yellow-400
+ *   VariableID:1:92 → --uedp-brown-900
+ *   VariableID:51a...404:40 → --uedp-slate-900
+ *   VariableID:ee4...417:76 → --uedp-muted-text
+ */
+
+:root {
+  /* ─────────────────────────────────────────
+     BASE PALETTE — Color Tokens
+     ───────────────────────────────────────── */
+
+  /* White & Black (VariableID:1:4 / VariableID:1:3) */
+  --uedp-white: #ffffff;
+  --uedp-black: #000000;
+
+  /* Neutral Scale */
+  --uedp-neutral-50: #f8f9fa;   /* VariableID:1:5  — card/panel background */
+  --uedp-neutral-100: #e5e6eb;  /* VariableID:1:28 — disabled background */
+  --uedp-neutral-200: #d5d5da;  /* VariableID:1:29 — input disabled bg */
+  --uedp-neutral-300: #d4d5d8;  /* VariableID:1:30 — button disabled bg */
+  --uedp-neutral-400: #a1a3aa;  /* VariableID:1:31 — disabled icon/text */
+
+  /* Slate */
+  --uedp-slate-900: #131927;    /* VariableID:51a0118f.../404:40 — primary text */
+
+  /* Blue */
+  --uedp-blue-100: #e2e8f0;     /* VariableID:1:7  — input hover */
+
+  /* Yellow */
+  --uedp-yellow-400: #fbbf24;   /* VariableID:1:86 — FAB button */
+
+  /* Brown */
+  --uedp-brown-900: #451a03;    /* VariableID:1:92 — nav button fill */
+
+  /* Red */
+  --uedp-red-100: #fee2e2;      /* VariableID:1:61 — error/progress track */
+  --uedp-red-300: #fca5a5;      /* VariableID:1:63 — progress fill */
+
+  /* Muted */
+  --uedp-muted-text: #9ea3ae;   /* VariableID:ee45...417:76 — disabled text */
+
+  /* ─────────────────────────────────────────
+     FOUNDATIONAL TOKENS — Typography
+     ───────────────────────────────────────── */
+
+  /* Font Families */
+  --uedp-font-serif: 'Poltawski Nowy', Georgia, serif;
+  --uedp-font-sans: 'Inter', system-ui, sans-serif;
+  --uedp-font-body: 'Roboto', system-ui, sans-serif;
+
+  /* Type Scale — heading-1 (Poltawski Nowy, 24px/400) */
+  --uedp-type-heading-1-family: var(--uedp-font-serif);
+  --uedp-type-heading-1-size: 24px;
+  --uedp-type-heading-1-weight: 400;
+  --uedp-type-heading-1-line-height: 31.2px;
+
+  /* Type Scale — subheading (Poltawski Nowy, 20px/500) */
+  --uedp-type-subheading-family: var(--uedp-font-serif);
+  --uedp-type-subheading-size: 20px;
+  --uedp-type-subheading-weight: 500;
+  --uedp-type-subheading-line-height: 26px;
+
+  /* Type Scale — body-1 (Inter, 16px/400) */
+  --uedp-type-body-1-family: var(--uedp-font-sans);
+  --uedp-type-body-1-size: 16px;
+  --uedp-type-body-1-weight: 400;
+  --uedp-type-body-1-line-height: 19.36px;
+
+  /* Type Scale — body-2 (Roboto, 14px/500) */
+  --uedp-type-body-2-family: var(--uedp-font-body);
+  --uedp-type-body-2-size: 14px;
+  --uedp-type-body-2-weight: 500;
+  --uedp-type-body-2-line-height: 16.41px;
+
+  /* Type Scale — card heading (Roboto, 16px/700) */
+  --uedp-type-card-heading-family: var(--uedp-font-body);
+  --uedp-type-card-heading-size: 16px;
+  --uedp-type-card-heading-weight: 700;
+  --uedp-type-card-heading-line-height: 18.75px;
+
+  /* Type Scale — caption-1 (Roboto, 12px/400) */
+  --uedp-type-caption-1-family: var(--uedp-font-body);
+  --uedp-type-caption-1-size: 12px;
+  --uedp-type-caption-1-weight: 400;
+  --uedp-type-caption-1-line-height: 14.06px;
+
+  /* Type Scale — caption-2 (Roboto, 10px/400) */
+  --uedp-type-caption-2-family: var(--uedp-font-body);
+  --uedp-type-caption-2-size: 10px;
+  --uedp-type-caption-2-weight: 400;
+  --uedp-type-caption-2-line-height: 11.72px;
+
+  /* ─────────────────────────────────────────
+     FOUNDATIONAL TOKENS — Border Radius
+     ───────────────────────────────────────── */
+  --uedp-rounded-sm: 5px;          /* Component 9 stroke radius */
+  --uedp-rounded-md: 12px;         /* CTA button (Component 6) */
+  --uedp-rounded-lg: 14px;         /* Input box (Component 4) */
+  --uedp-rounded-xl: 25px;         /* Card (Component 7) */
+  --uedp-rounded-2xl: 28px;        /* Component 5 (nav button) */
+  --uedp-rounded-full: 50px;       /* FAB (Button-circle-floating-secondary) */
+  --uedp-rounded-button: 27px;     /* Component 11 (nav pill button) */
+
+  /* ─────────────────────────────────────────
+     FOUNDATIONAL TOKENS — Spacing Scale
+     ───────────────────────────────────────── */
+  --uedp-spacing-0: 0px;
+  --uedp-spacing-1: 4px;
+  --uedp-spacing-2: 8px;
+  --uedp-spacing-3: 12px;
+  --uedp-spacing-4: 16px;
+  --uedp-spacing-5: 20px;
+  --uedp-spacing-6: 24px;
+  --uedp-spacing-8: 32px;
+
+  /* ─────────────────────────────────────────
+     FOUNDATIONAL TOKENS — Geometry / Sizing
+     ───────────────────────────────────────── */
+  --uedp-size-icon-sm: 24px;
+  --uedp-size-icon-md: 30px;
+  --uedp-size-fab: 50px;            /* FAB button diameter */
+  --uedp-size-cta: 72px;            /* CTA button width/height */
+  --uedp-size-card-width: 346px;    /* Component 7 card width */
+  --uedp-size-card-height: 192px;   /* Component 7 card height */
+  --uedp-size-card-img-w: 128px;    /* Component 10 image card width */
+  --uedp-size-card-img-h: 198px;    /* Component 10 image card height */
+  --uedp-size-progress-h: 8px;      /* Progress bar track height */
+  --uedp-size-progress-seg-h: 6px;  /* Progress bar segment height */
+  --uedp-size-navbar-h: 98px;       /* Navigation bar height */
+  --uedp-size-nav-btn-w: 266px;     /* Component 5 nav button width */
+  --uedp-size-nav-btn-h: 47px;      /* Component 5 nav button height */
+
+  /* ─────────────────────────────────────────
+     EFFECT TOKENS — Shadows
+     ───────────────────────────────────────── */
+  --uedp-shadow-card: 0 4px 16px rgba(19, 25, 39, 0.08);
+  --uedp-shadow-fab: 0 4px 12px rgba(251, 191, 36, 0.40);
+  --uedp-shadow-icon: 0 2px 8px rgba(0, 0, 0, 0.20);
+}
+
+/* ─────────────────────────────────────────
+   Global Base Styles
+   ───────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--uedp-font-sans);
+  font-size: var(--uedp-type-body-1-size);
+  color: var(--uedp-slate-900);
+  background: var(--uedp-neutral-50);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

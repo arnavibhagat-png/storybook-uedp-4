@@ -1,0 +1,96 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Button Circle Floating Secondary
+   Figma: ComponentSet in frame 21:27 ("components")
+   Variants (State): default | pressed | disabled
+   Size: 50px × 50px | cornerRadius: 25px (full circle)
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.ButtonCircleFloatingSecondary {
+  /* Geometry — exact from Figma absoluteBoundingBox */
+  width: var(--uedp-fab);     /* 50px */
+  height: var(--uedp-fab);    /* 50px */
+  padding: 0;
+
+  /* Shape — cornerRadius: 25px (full circle) */
+  border-radius: 50%;
+  border: none;
+
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+
+  /* Typography */
+  font-size: 0;
+  line-height: 1;
+
+  /* Transition & Animation */
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+
+  /* Elevation / Shadow (subtle FAB shadow) */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.ButtonCircleFloatingSecondary__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.ButtonCircleFloatingSecondary__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Variant: default
+   Fill: VariableID:1:86 → --uedp-yellow-400
+   Icon/Text: VariableID:1:3 → --uedp-black
+   ───────────────────────────────────────────────────────────────────────── */
+.ButtonCircleFloatingSecondary--default {
+  background-color: var(--uedp-yellow-400);
+  color: var(--uedp-black);
+}
+
+.ButtonCircleFloatingSecondary--default:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ButtonCircleFloatingSecondary--default:active {
+  transform: scale(0.95);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Variant: pressed
+   Same fill + scale-down interaction
+   ───────────────────────────────────────────────────────────────────────── */
+.ButtonCircleFloatingSecondary--pressed {
+  background-color: var(--uedp-yellow-400);
+  color: var(--uedp-black);
+  transform: scale(0.95);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Variant: disabled
+   Fill: VariableID:1:30 → --uedp-neutral-300
+   Icon/Text: VariableID:1:31 → --uedp-neutral-400
+   ───────────────────────────────────────────────────────────────────────── */
+.ButtonCircleFloatingSecondary--disabled {
+  background-color: var(--uedp-neutral-300);
+  color: var(--uedp-neutral-400);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.ButtonCircleFloatingSecondary--disabled:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.ButtonCircleFloatingSecondary--disabled:active {
+  transform: none;
+}

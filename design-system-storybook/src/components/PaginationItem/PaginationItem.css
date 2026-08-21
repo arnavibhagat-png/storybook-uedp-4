@@ -1,0 +1,139 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Pagination Item
+   Figma: ComponentSet in frame 10:341 ("components")
+   Variants (State): default | active | disabled | previous | next
+   Size: 32×32px | cornerRadius: 5px
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.PaginationItem {
+  /* Geometry */
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0;
+
+  /* Shape — cornerRadius: 5px */
+  border-radius: var(--uedp-rounded-sm);
+  border: 1px solid;
+
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+
+  /* Typography */
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  font-family: Inter;
+
+  /* Transition */
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.PaginationItem__label {
+  display: inline;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Variant: default
+   Fill: --uedp-white (VariableID:1:4)
+   Text: --uedp-slate-900 (VariableID:51a...)
+   Border: --uedp-neutral-200 (VariableID:1:29)
+   ───────────────────────────────────────────────────────────────────────── */
+.PaginationItem--default {
+  background-color: var(--uedp-white);
+  color: var(--uedp-slate-900);
+  border-color: var(--uedp-neutral-200);
+}
+
+.PaginationItem--default:hover {
+  background-color: var(--uedp-neutral-50);
+}
+
+.PaginationItem--default:active {
+  background-color: var(--uedp-neutral-100);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Variant: active
+   Fill: --uedp-slate-900 (VariableID:51a...)
+   Text/Icon: --uedp-white (VariableID:1:4)
+   Border: --uedp-slate-900
+   ───────────────────────────────────────────────────────────────────────── */
+.PaginationItem--active {
+  background-color: var(--uedp-slate-900);
+  color: var(--uedp-white);
+  border-color: var(--uedp-slate-900);
+}
+
+.PaginationItem--active:hover {
+  opacity: 0.9;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Variant: disabled
+   Fill: --uedp-neutral-100 (VariableID:1:28)
+   Text/Icon: --uedp-neutral-400 (VariableID:1:31)
+   Border: --uedp-neutral-200 (VariableID:1:29)
+   ───────────────────────────────────────────────────────────────────────── */
+.PaginationItem--disabled {
+  background-color: var(--uedp-neutral-100);
+  color: var(--uedp-neutral-400);
+  border-color: var(--uedp-neutral-200);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.PaginationItem--disabled:hover {
+  background-color: var(--uedp-neutral-100);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Variant: previous
+   Arrow navigation button (previous)
+   ───────────────────────────────────────────────────────────────────────── */
+.PaginationItem--previous {
+  background-color: var(--uedp-white);
+  color: var(--uedp-slate-900);
+  border-color: var(--uedp-neutral-200);
+}
+
+.PaginationItem--previous:hover {
+  background-color: var(--uedp-neutral-50);
+}
+
+.PaginationItem--previous:active {
+  background-color: var(--uedp-neutral-100);
+}
+
+.PaginationItem--previous svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Variant: next
+   Arrow navigation button (next)
+   ───────────────────────────────────────────────────────────────────────── */
+.PaginationItem--next {
+  background-color: var(--uedp-white);
+  color: var(--uedp-slate-900);
+  border-color: var(--uedp-neutral-200);
+}
+
+.PaginationItem--next:hover {
+  background-color: var(--uedp-neutral-50);
+}
+
+.PaginationItem--next:active {
+  background-color: var(--uedp-neutral-100);
+}
+
+.PaginationItem--next svg {
+  width: 16px;
+  height: 16px;
+}

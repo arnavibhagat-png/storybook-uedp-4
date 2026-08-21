@@ -1,0 +1,129 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Checkbox + Text
+   Figma: ComponentSet in frame 22:73 ("components")
+   Variants (State): unchecked | checked | disabled
+   Checkbox size: 20×20px | Corner radius: 5px
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.CheckboxText {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+
+  /* Typography */
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.41px;
+
+  /* Transition */
+  transition: opacity 0.2s ease;
+}
+
+.CheckboxText__input {
+  /* Hide native checkbox */
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+.CheckboxText__box {
+  /* Checkbox container */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+
+  /* Shape — cornerRadius: 5px */
+  border-radius: var(--uedp-rounded-sm);
+  border: 2px solid;
+
+  /* Transition */
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.CheckboxText__checkmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: inherit;
+}
+
+.CheckboxText__label {
+  display: inline;
+  flex: 1;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Variant: unchecked
+   Box: fill --uedp-white (VariableID:1:4), border --uedp-slate-900 (VariableID:51a...)
+   Label: --uedp-slate-900
+   ───────────────────────────────────────────────────────────────────────── */
+.CheckboxText--unchecked {
+  color: var(--uedp-slate-900);
+}
+
+.CheckboxText--unchecked .CheckboxText__box {
+  background-color: var(--uedp-white);
+  border-color: var(--uedp-slate-900);
+}
+
+.CheckboxText--unchecked:hover .CheckboxText__box {
+  background-color: var(--uedp-neutral-50);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Variant: checked
+   Box: fill --uedp-slate-900, border --uedp-slate-900
+   Checkmark: --uedp-white
+   Label: --uedp-slate-900
+   ───────────────────────────────────────────────────────────────────────── */
+.CheckboxText--checked {
+  color: var(--uedp-slate-900);
+}
+
+.CheckboxText--checked .CheckboxText__box {
+  background-color: var(--uedp-slate-900);
+  border-color: var(--uedp-slate-900);
+}
+
+.CheckboxText--checked .CheckboxText__checkmark {
+  color: var(--uedp-white);
+}
+
+.CheckboxText--checked:hover .CheckboxText__box {
+  opacity: 0.9;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Variant: disabled
+   Box: fill --uedp-neutral-300 (VariableID:1:30), border --uedp-neutral-300
+   Label & Checkmark: --uedp-neutral-400 (VariableID:1:31)
+   ───────────────────────────────────────────────────────────────────────── */
+.CheckboxText--disabled {
+  color: var(--uedp-neutral-400);
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.CheckboxText--disabled .CheckboxText__box {
+  background-color: var(--uedp-neutral-300);
+  border-color: var(--uedp-neutral-300);
+}
+
+.CheckboxText--disabled .CheckboxText__checkmark {
+  color: var(--uedp-neutral-400);
+}

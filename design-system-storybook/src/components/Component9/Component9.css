@@ -1,0 +1,104 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Component 9 — Navigation Bar
+   Figma: ComponentSet in frame 53:1093 ("Frame 6")
+   Variants (Property 1): Home | Community | Awareness | Specialist
+   Size: 349×98px | no fills | has ellipse highlight (opacity 0.32 white)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.Component9 {
+  /* Geometry — exact from Figma */
+  width: 349px;      /* absoluteBoundingBox.width */
+  height: var(--uedp-size-navbar-h);  /* 98px */
+
+  /* Layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  overflow: hidden;
+
+  /* Background — dark gradient representing Figma "Frame 119" container */
+  background: linear-gradient(180deg, #1e293b 0%, var(--uedp-slate-900) 100%);
+  border-radius: var(--uedp-rounded-xl) var(--uedp-rounded-xl) 0 0;
+
+  /* Padding */
+  padding: 0 var(--uedp-spacing-3);
+}
+
+/* Nav items container (Figma "Frame 119" child) */
+.Component9__items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Individual nav item */
+.Component9__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--uedp-spacing-1);
+  padding: var(--uedp-spacing-2);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  border-radius: var(--uedp-rounded-md);
+  transition: opacity 0.15s ease;
+  flex: 1;
+}
+
+.Component9__item:hover {
+  opacity: 0.8;
+}
+
+/* Icon wrapper */
+.Component9__icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--uedp-white);
+  opacity: 0.7;
+}
+
+/* Label */
+.Component9__label {
+  font-family: var(--uedp-font-body);
+  font-size: var(--uedp-type-caption-2-size);
+  font-weight: 400;
+  color: var(--uedp-white);
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+
+/* Active item — Ellipse 137: rgba(white, 0.32) highlight */
+.Component9__item--active .Component9__icon,
+.Component9__item--active .Component9__label {
+  opacity: 1;
+}
+
+.Component9__item--active::before {
+  content: '';
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  /* Figma Ellipse 137: opacity 0.32, white fill */
+  background-color: rgba(255, 255, 255, 0.32);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.Component9__item {
+  position: relative;
+}
