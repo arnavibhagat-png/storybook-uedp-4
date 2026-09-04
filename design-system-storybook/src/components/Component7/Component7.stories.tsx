@@ -1,4 +1,4 @@
-﻿import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Component7 } from './Component7'
 
 const meta: Meta<typeof Component7> = {
@@ -11,8 +11,11 @@ const meta: Meta<typeof Component7> = {
       options: ['active', 'inactive'],
       description: 'Figma variant (Property 1)',
     },
-    heading: { control: 'text', description: 'Card heading' },
-    body: { control: 'text', description: 'Card body text' },
+    statText: { control: 'text', description: 'Stat prefix text' },
+    statHighlight: { control: 'text', description: 'Stat highlight text' },
+    statSuffix: { control: 'text', description: 'Stat suffix text' },
+    heading: { control: 'text', description: 'Motivational heading' },
+    buttonText: { control: 'text', description: 'CTA button label' },
   },
   parameters: { layout: 'centered' },
 }
@@ -21,19 +24,23 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Active: Story = {
-  args: { property1: 'active', heading: 'Awareness Module', body: 'Learn about environmental awareness.' },
+  args: {
+    property1: 'active',
+    statText: 'Sleep improved by ',
+    statHighlight: '15%',
+    statSuffix: ' since April 10th',
+    heading: 'You are doing amazing Mama!\nOne day at a time',
+    buttonText: 'Log Sleep',
+  },
 }
 
 export const Inactive: Story = {
-  args: { property1: 'inactive', heading: 'Community Card', body: 'Connect with your local community.' },
-}
-
-export const CardGrid: Story = {
-  name: 'Card Grid - Both Variants',
-  render: () => (
-    <div style={{ display: 'flex', gap: 16, padding: 24, background: '#f8f9fa', borderRadius: 16, flexWrap: 'wrap' }}>
-      <Component7 property1='active' heading='Awareness' body='Environmental awareness module' />
-      <Component7 property1='inactive' heading='Community' body='Connect with your community' />
-    </div>
-  ),
+  args: {
+    property1: 'inactive',
+    statText: 'Sleep improved by ',
+    statHighlight: '15%',
+    statSuffix: ' since April 10th',
+    heading: 'You are doing amazing Mama!\nOne day at a time',
+    buttonText: 'Log Sleep',
+  },
 }

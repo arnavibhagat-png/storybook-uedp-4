@@ -1,0 +1,185 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Navigation Bar Component
+   Figma: Navigation bar (Home | Community | Awareness | Specialist)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.NavigationBar {
+  position: relative;
+  width: 356px;
+  height: 64px;
+  border-radius: 34px;
+  background-color: #17181c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.2);
+  user-select: none;
+  margin-top: 18px; /* space for protruding center button */
+}
+
+/* Center dome arch raising from top of navbar */
+.NavigationBar__dome-backdrop {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 38px;
+  background-color: #17181c;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Sections for left and right nav item pairs */
+.NavigationBar__section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex: 1;
+  z-index: 2;
+}
+
+/* Center floating button container */
+.NavigationBar__center-slot {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  margin-top: -24px; /* elevate button above navbar */
+}
+
+/* Center floating coral mic + sparkle button */
+.NavigationBar__center-button {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background: linear-gradient(135deg, #fba09d 0%, #f78481 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(247, 132, 129, 0.45), 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.NavigationBar__center-button:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 20px rgba(247, 132, 129, 0.55), 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.NavigationBar__center-button:active {
+  transform: scale(0.95);
+}
+
+/* Individual Nav Tab Button */
+.NavigationBar__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  cursor: pointer;
+  flex: 1;
+  max-width: 68px;
+  border-radius: 12px;
+  transition: opacity 0.15s ease;
+}
+
+/* Icon Container with active circular glow effect */
+.NavigationBar__icon-container {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Soft white radial spotlight behind active icon */
+.NavigationBar__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.38) 0%,
+    rgba(255, 255, 255, 0.18) 45%,
+    rgba(255, 255, 255, 0) 72%
+  );
+  filter: blur(1.5px);
+  pointer-events: none;
+  z-index: 0;
+  animation: navItemGlowPulse 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes navItemGlowPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 1;
+  }
+}
+
+.NavigationBar__icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  opacity: 0.55;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+/* Tab Label */
+.NavigationBar__label {
+  font-family: var(--uedp-font-sans, 'Inter', system-ui, sans-serif);
+  font-size: 9.5px;
+  font-weight: 500;
+  color: #ffffff;
+  opacity: 0.55;
+  margin-top: 2px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: opacity 0.18s ease;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   ACTIVE TAB STATE
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.NavigationBar__item--active .NavigationBar__icon {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.NavigationBar__item--active .NavigationBar__label {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.NavigationBar__item:hover:not(.NavigationBar__item--active) .NavigationBar__icon,
+.NavigationBar__item:hover:not(.NavigationBar__item--active) .NavigationBar__label {
+  opacity: 0.8;
+}

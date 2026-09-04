@@ -1,0 +1,199 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Awareness Card Component
+   Figma: Card / awareness card
+   Variants: default | hover | pressed | disabled
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.AwarenessCard {
+  position: relative;
+  width: 340px;
+  min-height: 200px;
+  border-radius: 22px;
+  background-color: var(--uedp-brown-900, #451a03);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease,
+              border-color 0.2s ease;
+}
+
+/* Background image & gradient blend container */
+.AwarenessCard__image-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 48%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.AwarenessCard__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+/* Gradient overlay to seamlessly fade image into card background */
+.AwarenessCard__gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    var(--uedp-brown-900, #451a03) 0%,
+    rgba(69, 26, 3, 0.85) 18%,
+    rgba(69, 26, 3, 0.35) 48%,
+    rgba(69, 26, 3, 0) 100%
+  );
+}
+
+/* Content layer on top of background */
+.AwarenessCard__content {
+  position: relative;
+  z-index: 2;
+  padding: 18px 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 65%;
+}
+
+/* Card Heading */
+.AwarenessCard__title {
+  margin: 0 0 10px 0;
+  font-family: var(--uedp-font-sans, 'Inter', system-ui, sans-serif);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--uedp-white, #ffffff);
+  letter-spacing: -0.01em;
+}
+
+/* List of bullet items */
+.AwarenessCard__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.AwarenessCard__list-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--uedp-font-body, 'Roboto', system-ui, sans-serif);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.AwarenessCard__item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  flex-shrink: 0;
+}
+
+.AwarenessCard__item-icon svg {
+  width: 13px;
+  height: 13px;
+}
+
+.AwarenessCard__item-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Action pill button */
+.AwarenessCard__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: none;
+  background-color: var(--uedp-white, #ffffff);
+  color: var(--uedp-brown-900, #451a03);
+  font-family: var(--uedp-font-sans, 'Inter', system-ui, sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.AwarenessCard__button:hover:not(:disabled) {
+  background-color: #f8f9fa;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.22);
+}
+
+.AwarenessCard__button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   STATES / VARIANTS
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Default State */
+.AwarenessCard--default {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+}
+
+/* Hover State */
+.AwarenessCard--hover,
+.AwarenessCard--default:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.42), 0 4px 12px rgba(62, 24, 5, 0.35);
+}
+
+/* Pressed State */
+.AwarenessCard--pressed,
+.AwarenessCard--default:active {
+  transform: scale(0.985);
+  box-shadow: 0 0 0 2.5px #c88949, 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Disabled State */
+.AwarenessCard--disabled {
+  opacity: 0.85;
+  cursor: not-allowed;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transform: none !important;
+}
+
+.AwarenessCard--disabled .AwarenessCard__button,
+.AwarenessCard__button:disabled {
+  background-color: #cbcfd4;
+  color: #6c737f;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
