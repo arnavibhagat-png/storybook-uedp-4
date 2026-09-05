@@ -1,0 +1,41 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Progress Bar
+   Figma: Progress Bar ComponentSet
+   Variants (State): Disabled | 10% | 50% | 80% | 100%
+   Segments: 4 pill-shaped dashes
+   Tokens:
+     - Active fill: --uedp-red-300 (#fca5a5)
+     - Active track: --uedp-red-100 (#fee2e2)
+     - Disabled track/fill: --uedp-neutral-100 (#e5e6eb)
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.ProgressBar {
+  display: flex;
+  align-items: center;
+  gap: var(--uedp-spacing-2, 8px);
+  width: 100%;
+  max-width: 320px;
+}
+
+.ProgressBar__segment {
+  flex: 1;
+  height: var(--uedp-size-progress-seg-h, 6px);
+  min-height: 6px;
+  border-radius: var(--uedp-rounded-full, 9999px);
+  background-color: var(--uedp-red-100, #fee2e2);
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Filled active segment */
+.ProgressBar__segment--filled {
+  background-color: var(--uedp-red-300, #fca5a5);
+}
+
+/* Disabled state */
+.ProgressBar--disabled .ProgressBar__segment {
+  background-color: var(--uedp-neutral-100, #e5e6eb);
+}
+
+.ProgressBar--disabled .ProgressBar__segment--filled {
+  background-color: var(--uedp-neutral-100, #e5e6eb);
+}

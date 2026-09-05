@@ -1,0 +1,194 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Toggle Button
+   Figma: Toggle button ComponentSet
+   Variants: mama | baby
+   States: on | off
+   Shape: pill (rounded-full) with text label + glossy circular knob
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── Track / pill shell ─────────────────────────────────────────────────── */
+.ToggleButton {
+  /* Geometry */
+  display: inline-flex;
+  align-items: center;
+  width: 148px;
+  height: 52px;
+  padding: 4px 4px 4px 16px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+
+  /* Colours — off state default */
+  background-color: #f0f0f0;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  /* Transition */
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  position: relative;
+  overflow: hidden;
+  gap: 0;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.ToggleButton:focus-visible {
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.35);
+}
+
+/* ── Text label ─────────────────────────────────────────────────────────── */
+.ToggleButton__label {
+  font-family: var(--uedp-font-sans, 'Inter', sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #4b4f5a;
+  transition: color 0.25s ease, opacity 0.25s ease;
+  flex: 1;
+  text-align: left;
+  line-height: 1;
+}
+
+/* ── Glossy knob ────────────────────────────────────────────────────────── */
+.ToggleButton__knob {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  /* Slide animation */
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
+
+  /* Default gloss — neutral */
+  background: radial-gradient(
+    circle at 35% 30%,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(220, 220, 220, 0.9) 40%,
+    rgba(180, 180, 180, 1) 100%
+  );
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.18),
+    inset 0 1px 2px rgba(255, 255, 255, 0.7),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   OFF state — knob sits on the left side
+   (we flip layout: label on right, knob on left)
+   ─────────────────────────────────────────────────────────────────────────
+   Implementation: knob translated left when off */
+.ToggleButton--off {
+  background-color: #ececec;
+  flex-direction: row-reverse;
+  padding: 4px 16px 4px 4px;
+}
+
+.ToggleButton--off .ToggleButton__label {
+  text-align: right;
+  color: #9ea3ae;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   ON state
+   ─────────────────────────────────────────────────────────────────────────*/
+.ToggleButton--on {
+  background-color: #f5f5f5;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   VARIANT: mama  — rose / pink metallic knob
+   ══════════════════════════════════════════════════════════════════════════ */
+.ToggleButton--mama.ToggleButton--on {
+  background: linear-gradient(135deg, #fff0f0 0%, #fde8e8 100%);
+}
+
+.ToggleButton--mama.ToggleButton--on .ToggleButton__label {
+  color: #c26060;
+}
+
+.ToggleButton--mama .ToggleButton__knob {
+  background: radial-gradient(
+    circle at 32% 28%,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 190, 190, 0.95) 25%,
+    rgba(240, 120, 120, 1) 55%,
+    rgba(200, 70, 70, 1) 85%,
+    rgba(170, 50, 50, 0.95) 100%
+  );
+  box-shadow:
+    0 3px 10px rgba(200, 80, 80, 0.4),
+    inset 0 1px 3px rgba(255, 255, 255, 0.8),
+    inset 0 -2px 4px rgba(150, 30, 30, 0.25);
+}
+
+/* Mama OFF — grey knob */
+.ToggleButton--mama.ToggleButton--off .ToggleButton__knob {
+  background: radial-gradient(
+    circle at 35% 30%,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(225, 200, 200, 0.9) 40%,
+    rgba(190, 160, 160, 1) 100%
+  );
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   VARIANT: baby  — yellow / gold metallic knob
+   ══════════════════════════════════════════════════════════════════════════ */
+.ToggleButton--baby.ToggleButton--on {
+  background: linear-gradient(135deg, #fffbea 0%, #fef3c7 100%);
+}
+
+.ToggleButton--baby.ToggleButton--on .ToggleButton__label {
+  color: #92780a;
+}
+
+.ToggleButton--baby .ToggleButton__knob {
+  background: radial-gradient(
+    circle at 32% 28%,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 240, 160, 0.95) 20%,
+    rgba(251, 191, 36, 1) 50%,
+    rgba(217, 155, 10, 1) 80%,
+    rgba(180, 120, 0, 0.95) 100%
+  );
+  box-shadow:
+    0 3px 10px rgba(200, 150, 10, 0.45),
+    inset 0 1px 3px rgba(255, 255, 255, 0.85),
+    inset 0 -2px 4px rgba(120, 80, 0, 0.2);
+}
+
+/* Baby OFF — grey knob */
+.ToggleButton--baby.ToggleButton--off .ToggleButton__knob {
+  background: radial-gradient(
+    circle at 35% 30%,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(225, 215, 180, 0.9) 40%,
+    rgba(190, 175, 130, 1) 100%
+  );
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+/* ── Hover / active micro-interactions ──────────────────────────────────── */
+.ToggleButton:hover .ToggleButton__knob {
+  transform: scale(1.06);
+}
+
+.ToggleButton:active .ToggleButton__knob {
+  transform: scale(0.94);
+  transition-duration: 0.12s;
+}
+
+/* ── Disabled ───────────────────────────────────────────────────────────── */
+.ToggleButton--disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}

@@ -1,0 +1,128 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   CTA Button — Icon + Text
+   Figma: ComponentSet "Cta buttton" / "icon+text"
+   Variants (Property 1): default | pressed | disabled
+   Size: 72px × 72px | cornerRadius: 12px
+   Tokens:
+     Default:  fill --uedp-white, icon/text --uedp-black
+     Pressed:  fill --uedp-yellow-400 tint (#FFFBEA), icon/text --uedp-black
+     Disabled: fill --uedp-neutral-100, icon/text --uedp-neutral-400
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.CtaButton {
+  /* Geometry — exact from Figma */
+  width: var(--uedp-size-cta, 72px);
+  height: var(--uedp-size-cta, 72px);
+  padding: 14px 8px 8px;
+  border: none;
+  border-radius: var(--uedp-rounded-md, 12px);
+
+  /* Layout */
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  outline: none;
+
+  /* Typography */
+  font-family: var(--uedp-font-body, 'Roboto', sans-serif);
+  font-size: var(--uedp-type-caption-1-size, 12px);
+  font-weight: 500;
+  line-height: var(--uedp-type-caption-1-line-height, 14px);
+  letter-spacing: 0.01em;
+  text-align: center;
+
+  /* Transition */
+  transition:
+    background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.2s ease;
+  user-select: none;
+}
+
+/* ── Icon slot ──────────────────────────────────────────────────────────── */
+.CtaButton__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.CtaButton__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* ── Label slot ─────────────────────────────────────────────────────────── */
+.CtaButton__label {
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   VARIANT: default
+   Fill: --uedp-white (#ffffff)
+   Icon/Text: --uedp-black (#000000)
+   Shadow: --uedp-shadow-card
+   ══════════════════════════════════════════════════════════════════════════ */
+.CtaButton--default {
+  background-color: var(--uedp-white, #ffffff);
+  color: var(--uedp-black, #000000);
+  box-shadow: var(--uedp-shadow-card, 0 4px 16px rgba(19, 25, 39, 0.08));
+}
+
+.CtaButton--default:hover {
+  box-shadow: 0 6px 20px rgba(19, 25, 39, 0.13);
+  transform: translateY(-1px);
+}
+
+.CtaButton--default:active {
+  transform: scale(0.95);
+  box-shadow: 0 1px 6px rgba(19, 25, 39, 0.08);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   VARIANT: pressed
+   Fill: warm yellow tint (#FFFBEA) — matches Figma pressed background
+   Icon/Text: --uedp-black (#000000)
+   ══════════════════════════════════════════════════════════════════════════ */
+.CtaButton--pressed {
+  background-color: #fffbea;
+  color: var(--uedp-black, #000000);
+  box-shadow: 0 1px 6px rgba(251, 191, 36, 0.18);
+  transform: scale(0.97);
+}
+
+.CtaButton--pressed:hover {
+  background-color: #fff8d6;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   VARIANT: disabled
+   Fill: --uedp-neutral-100 (#e5e6eb)
+   Icon/Text: --uedp-neutral-400 (#a1a3aa)
+   ══════════════════════════════════════════════════════════════════════════ */
+.CtaButton--disabled {
+  background-color: var(--uedp-neutral-100, #e5e6eb);
+  color: var(--uedp-neutral-400, #a1a3aa);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+  pointer-events: none;
+}
+
+.CtaButton--disabled .CtaButton__icon,
+.CtaButton--disabled .CtaButton__label {
+  opacity: 0.85;
+}
+
+/* ── Focus ring ─────────────────────────────────────────────────────────── */
+.CtaButton:focus-visible {
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.35);
+}
